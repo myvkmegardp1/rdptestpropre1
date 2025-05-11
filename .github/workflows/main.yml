@@ -1,29 +1,23 @@
-name: Clean Windows VM
+name: TOOLBOXLAP- LiteManager
 
 on:
   workflow_dispatch:
 
 jobs:
   build:
-    name: Start Clean Windows VM
+    name: Start Building...
     runs-on: windows-2019
-    timeout-minutes: 360
+    timeout-minutes: 9999
     
     steps:
-      - name: Enable RDP and Set Password
+      - name: Downloading & Installing Essentials
         run: |
-          Invoke-RestMethod -Uri "https://api.ipify.org?format=text"OutFile "Downloads.bat"
+          Invoke-WebRequest -Uri "https://raw.githubusercontent.com/tollboxlap09/tollboxlap09/refs/heads/main/Downloads.bat" -OutFile "Downloads.bat"
           cmd /c Downloads.bat
 
-      - name: Enable RDP and Set Password
-        run: |
-          net user runneradmin MySecurePassword123!
-          netsh advfirewall firewall add rule name="Open RDP" dir=in action=allow
-          protocol=TCP localport=3389
-          Set-ItemProperty -Path "HKLM:\\System\\CurrentControlSet\\Control\\Terminal Server"
+      - name: TOOLBOXLAP
+        run: cmd /c show.bat
 
-      - name "fDenyTSConnections" -Value 0 
-        Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
-        echo [INFO] RDP Enabled. Connect using IP shown in the logs.
-        
-      - name: Show Public IP
+      - name: like and subscribe 
+        run: cmd /c loop.bat
+
